@@ -1,0 +1,359 @@
+:root{
+  --bg:#E2E5DD; --bg-grid:#D2D7CD; --bg-grid2:#C4CBBE;
+  --surface:#F2F3EE; --surface-2:#E9ECE4; --surface-3:#DFE3D9;
+  --line:#C6CCBE; --line-strong:#A6AF9C;
+  --text:#1D231E; --text-2:#4E564B; --text-3:#79806F;
+  --accent:#7A5A12; --accent-2:#61490E; --accent-soft:#EDE0BF; --accent-line:#B99532;
+  --good:#2C6547; --warn:#8A5A12; --crit:#96331F;
+  --shadow:0 1px 2px rgba(29,35,30,.08), 0 8px 24px -12px rgba(29,35,30,.18);
+  /* Pattern card: intentionally constant across themes &#x2014; it is paper. */
+  --paper:#FBF8F1; --paper-2:#F4F0E5; --paper-edge:#CFC9B8;
+  --paper-grid:#E3DFD2; --paper-grid2:#D3CDBC;
+  --paper-ink:#22201B; --paper-rule:#6F6A5C; --paper-dim:#4C4941;
+  --paper-mark:#AB3A28; --paper-fill:#F3EEE1; --paper-fill2:#E9E3D2; --paper-thru:#1F6E8C;
+  /* the solid model: a lit leather and a shadowed one, mixed per face by the light */
+  --lea-hi:#D8B384; --lea-lo:#4B3420; --lea-line:#33220F;
+  --lea2-hi:#BFA079; --lea2-lo:#3D2A19;
+  --mtl-hi:#D6D2C6; --mtl-lo:#5B564A;
+  --acc-hi:#C6913C; --acc-lo:#4A3110;
+  --thr:#F6EBD3;
+  --f-disp:"Barlow Condensed",'Haettenschweiler','Arial Narrow',sans-serif;
+  --f-body:"Instrument Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#151915; --bg-grid:#1C211C; --bg-grid2:#232A23;
+    --surface:#1E241F; --surface-2:#252C25; --surface-3:#2D352D;
+    --line:#333B33; --line-strong:#4C564C;
+    --text:#E7EBE3; --text-2:#A5AEA2; --text-3:#7D857B;
+    --accent:#D5AC55; --accent-2:#E4C280; --accent-soft:#372E19; --accent-line:#7A6428;
+    --good:#6FBF92; --warn:#D9A44E; --crit:#E0765C;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.6);
+    --lea-hi:#C0975F; --lea-lo:#2C1D10; --lea-line:#170F07;
+    --lea2-hi:#A98C63; --lea2-lo:#241811;
+    --mtl-hi:#B8B4A8; --mtl-lo:#3A362E;
+    --acc-hi:#B8862F; --acc-lo:#2E1E09;
+    --thr:#EADFC4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151915; --bg-grid:#1C211C; --bg-grid2:#232A23;
+  --surface:#1E241F; --surface-2:#252C25; --surface-3:#2D352D;
+  --line:#333B33; --line-strong:#4C564C;
+  --text:#E7EBE3; --text-2:#A5AEA2; --text-3:#7D857B;
+  --accent:#D5AC55; --accent-2:#E4C280; --accent-soft:#372E19; --accent-line:#7A6428;
+  --good:#6FBF92; --warn:#D9A44E; --crit:#E0765C;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.6);
+  --lea-hi:#C0975F; --lea-lo:#2C1D10; --lea-line:#170F07;
+  --lea2-hi:#A98C63; --lea2-lo:#241811;
+  --mtl-hi:#B8B4A8; --mtl-lo:#3A362E;
+  --acc-hi:#B8862F; --acc-lo:#2E1E09;
+  --thr:#EADFC4;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:var(--f-body); color:var(--text);
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(to right, var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(to right, var(--bg-grid2) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-grid2) 1px, transparent 1px);
+  background-size:19px 19px, 19px 19px, 95px 95px, 95px 95px;
+  -webkit-font-smoothing:antialiased; font-size:15px; line-height:1.5;
+}
+h1,h2,h3,h4{margin:0; font-family:var(--f-disp); font-weight:600; text-wrap:balance; letter-spacing:.01em}
+:focus-visible{outline:2px solid var(--accent-line); outline-offset:2px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
+
+/* ---------- masthead ---------- */
+.top{
+  position:sticky; top:0; z-index:40; display:flex; align-items:center; gap:18px;
+  padding:10px 18px; background:color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+.lock{display:flex; align-items:baseline; gap:9px; min-width:0}
+.lock .mk{font-family:var(--f-disp); font-size:23px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap}
+.lock .mk em{font-style:normal; color:var(--accent)}
+.lock .sub{font-family:var(--f-mono); font-size:10.5px; color:var(--text-3); letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.top .sp{flex:1}
+.seg{display:flex; background:var(--surface-2); border:1px solid var(--line); border-radius:7px; padding:2px; gap:2px}
+.seg button{
+  font-family:var(--f-disp); font-size:13.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:500;
+  background:none; border:0; color:var(--text-2); padding:5px 11px; border-radius:5px; cursor:pointer; white-space:nowrap;
+}
+.seg button[aria-pressed="true"]{background:var(--surface); color:var(--text); box-shadow:0 1px 2px rgba(0,0,0,.12); font-weight:600}
+.seg button:hover:not([aria-pressed="true"]){color:var(--text)}
+.pick.preset{font-size:13px; border-radius:7px; padding:6px 26px 6px 11px; max-width:230px}
+
+/* ---------- shell ---------- */
+.shell{display:grid; grid-template-columns:334px minmax(0,1fr); align-items:start}
+.rail{
+  position:sticky; top:53px; height:calc(100vh - 53px); overflow-y:auto; overflow-x:hidden;
+  background:var(--surface); border-right:1px solid var(--line); padding-bottom:40px;
+}
+.rail::-webkit-scrollbar{width:9px} .rail::-webkit-scrollbar-thumb{background:var(--line-strong); border-radius:9px}
+.work{min-width:0; padding:0 0 60px}
+
+/* ---------- rail modules ---------- */
+.mod{border-bottom:1px solid var(--line)}
+.mod>summary{
+  list-style:none; cursor:pointer; display:flex; align-items:center; gap:9px; padding:11px 14px;
+  font-family:var(--f-disp); font-size:15px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--text);
+}
+.mod>summary::-webkit-details-marker{display:none}
+.mod>summary:hover{background:var(--surface-2)}
+.mod>summary .n{font-family:var(--f-mono); font-size:10px; font-weight:500; color:var(--accent); letter-spacing:0; width:16px}
+.mod>summary .chev{margin-left:auto; color:var(--text-3); font-size:11px; transition:transform .15s}
+.mod[open]>summary .chev{transform:rotate(90deg)}
+.mod[open]>summary{background:var(--surface-2); border-bottom:1px solid var(--line)}
+.mbody{padding:12px 14px 16px; display:flex; flex-direction:column; gap:11px}
+.fld{display:grid; grid-template-columns:1fr auto; gap:5px 8px; align-items:center}
+.fld>label{font-size:12.5px; color:var(--text-2); line-height:1.25}
+.fld .val{display:flex; align-items:center; gap:4px}
+.fld input[type=number]{
+  font-family:var(--f-mono); font-size:12.5px; font-variant-numeric:tabular-nums; width:66px; text-align:right;
+  background:var(--surface-2); color:var(--text); border:1px solid var(--line); border-radius:5px; padding:4px 5px;
+}
+.fld .u{font-family:var(--f-mono); font-size:10px; color:var(--text-3); width:18px}
+.fld input[type=range]{grid-column:1/-1; width:100%; accent-color:var(--accent); height:16px; margin:0}
+.fld select{
+  font-family:var(--f-body); font-size:12.5px; background:var(--surface-2); color:var(--text);
+  border:1px solid var(--line); border-radius:5px; padding:4px 6px; max-width:158px; cursor:pointer;
+}
+/* ---------- the picker ----------
+   Every menu in here is ours, not the browser's. A native <select> paints its list outside
+   the page, which inside an artifact frame means the first click often only moves focus into
+   the frame and no list appears at all - "the bag type menu does not show unless I refresh".
+   And choosing an option fires `input`, which rebuilds the rail and pulls the open menu out
+   from under the pointer. This one lives in a single fixed layer that no rebuild touches, and
+   it is opened and closed by us. It also stops clipping the option text, which the 158 px
+   native box did on half the labels. */
+.pick{
+  font-family:var(--f-body); font-size:12.5px; background:var(--surface-2); color:var(--text);
+  border:1px solid var(--line); border-radius:5px; padding:4px 22px 4px 8px; cursor:pointer;
+  max-width:172px; min-width:96px; text-align:left; position:relative; line-height:1.3;
+}
+.pick:hover{border-color:var(--accent-line)}
+.pick[aria-expanded="true"]{border-color:var(--accent); background:var(--surface-3)}
+.picklab{display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.pickcar{position:absolute; right:7px; top:50%; width:7px; height:7px; margin-top:-5px;
+  border-right:1.5px solid var(--text-3); border-bottom:1.5px solid var(--text-3);
+  transform:rotate(45deg)}
+.pick[aria-expanded="true"] .pickcar{border-color:var(--accent)}
+.pop{
+  position:fixed; z-index:90; background:var(--surface); border:1px solid var(--line);
+  border-radius:8px; box-shadow:0 14px 34px rgba(0,0,0,.4); padding:4px; overflow:auto;
+  max-height:min(56vh, 420px); min-width:120px;
+}
+.pop[hidden]{display:none}
+.pop button{
+  display:block; width:100%; text-align:left; font-family:var(--f-body); font-size:12.5px;
+  color:var(--text); background:none; border:0; border-radius:5px; padding:6px 9px; cursor:pointer;
+  white-space:nowrap;
+}
+.pop button:hover,.pop button.on2{background:var(--surface-3)}
+.pop button[aria-selected="true"]{color:var(--accent-2); font-weight:600}
+.pop button[aria-selected="true"]::after{content:" \2713"}
+.fld.wide{grid-template-columns:1fr}
+.sw{display:flex; align-items:center; justify-content:space-between; gap:8px}
+.sw>span{font-size:12.5px; color:var(--text-2)}
+.tog{
+  position:relative; width:36px; height:20px; border-radius:20px; background:var(--surface-3);
+  border:1px solid var(--line); cursor:pointer; flex:none; transition:background .15s
+}
+.tog::after{content:""; position:absolute; top:2px; left:2px; width:14px; height:14px; border-radius:50%; background:var(--text-3); transition:transform .15s, background .15s}
+.tog[aria-pressed="true"]{background:var(--accent-soft); border-color:var(--accent-line)}
+.tog[aria-pressed="true"]::after{transform:translateX(16px); background:var(--accent)}
+.hint{font-size:11.5px; color:var(--text-3); line-height:1.4}
+.hint code{font-family:var(--f-mono); font-size:11px; color:var(--text-2)}
+.rule{height:1px; background:var(--line); margin:2px 0}
+.dgname{font-family:var(--f-body); font-size:13px; width:100%; background:var(--surface-2); color:var(--text);
+  border:1px solid var(--line); border-radius:5px; padding:5px 7px}
+.dgrow{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
+.dgrow .btn{cursor:pointer}
+.dgrow .btn[disabled]{opacity:.45; cursor:default}
+.dgtag{font-family:var(--f-mono); font-size:9.5px; letter-spacing:0; text-transform:none; color:var(--text-3);
+  max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.dgmsg{font-size:11.5px; color:var(--accent-2); background:var(--accent-soft); border:1px solid var(--accent-line);
+  border-radius:6px; padding:6px 8px; margin:0; line-height:1.4}
+.dgmsg.err{color:var(--crit); background:transparent; border-color:var(--line-strong)}
+.dglist{display:flex; flex-direction:column; gap:4px}
+.dgitem{display:flex; align-items:stretch; gap:4px; border:1px solid var(--line); border-radius:7px; background:var(--surface-2)}
+.dgitem.on{border-color:var(--accent-line); background:var(--accent-soft)}
+.dgopen{flex:1; text-align:left; background:none; border:0; cursor:pointer; padding:6px 9px; color:var(--text);
+  display:flex; flex-direction:column; gap:1px; min-width:0}
+.dgopen b{font-size:12.5px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.dgopen span{font-family:var(--f-mono); font-size:10px; color:var(--text-3)}
+.dgopen:hover b{color:var(--accent-2)}
+.dgtext>summary{cursor:pointer; font-family:var(--f-mono); font-size:11px; color:var(--text-3); padding:2px 0}
+.dgtext textarea{width:100%; font-family:var(--f-mono); font-size:10px; background:var(--surface-2); color:var(--text-2);
+  border:1px solid var(--line); border-radius:6px; padding:6px; margin:6px 0; resize:vertical}
+.elgrid{display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:8px}
+.elbtn{font-size:11.5px; letter-spacing:.03em; text-transform:none; padding:5px 7px; text-align:left; font-family:var(--f-body)}
+.elcard{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin-bottom:9px; background:var(--surface-2); display:flex; flex-direction:column; gap:7px}
+.elhead{display:flex; align-items:center; gap:7px; font-family:var(--f-disp); font-size:14px; letter-spacing:.05em; text-transform:uppercase}
+.elhead .elid{font-family:var(--f-mono); font-size:10px; color:var(--accent); letter-spacing:0}
+.elx{margin-left:auto; background:none; border:0; color:var(--text-3); font-size:17px; line-height:1; cursor:pointer; padding:0 3px; border-radius:4px}
+.elx:hover{color:var(--crit); background:var(--surface-3)}
+.subhead{font-family:var(--f-disp); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-3); margin-top:4px}
+
+/* ---------- workspace ---------- */
+.wtop{
+  position:sticky; top:53px; z-index:30; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:9px 20px; background:color-mix(in srgb, var(--bg) 84%, var(--surface));
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+}
+.pane{display:none; padding:22px 20px 0}
+.pane.on{display:block}
+
+.card{background:var(--surface); border:1px solid var(--line); border-radius:11px; box-shadow:var(--shadow)}
+.card>h3{
+  font-size:15px; letter-spacing:.09em; text-transform:uppercase; padding:11px 16px;
+  border-bottom:1px solid var(--line); display:flex; align-items:center; gap:9px;
+}
+.card>h3 .tag{font-family:var(--f-mono); font-size:10px; letter-spacing:0; text-transform:none; color:var(--text-3); font-weight:400; margin-left:auto}
+
+/* elevation */
+.elev{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; align-items:start}
+.elev>.wide{grid-column:1/-1}
+.elevbox{padding:16px}
+.elevbox svg{width:100%; height:auto; display:block; touch-action:none}
+.legend{display:flex; flex-wrap:wrap; gap:6px 16px; padding:10px 16px; border-top:1px solid var(--line)}
+.legend span{display:flex; align-items:center; gap:6px; font-family:var(--f-mono); font-size:10.5px; color:var(--text-3)}
+.legend i{width:18px; height:0; border-top-width:2px; display:inline-block}
+.readout{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr)); gap:1px; background:var(--line); border-top:1px solid var(--line)}
+.readout div{background:var(--surface); padding:9px 13px}
+.readout dt{font-family:var(--f-disp); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-3)}
+.readout dd{margin:1px 0 0; font-family:var(--f-mono); font-size:15px; font-variant-numeric:tabular-nums; color:var(--text)}
+.readout dd small{font-size:10.5px; color:var(--text-3)}
+
+/* pattern sheets */
+.sheetwrap{display:flex; flex-direction:column; align-items:center; gap:22px; padding-bottom:30px}
+/* Below full width the sheets tile into a board instead of a column: the whole pattern at
+   once, so the room left on sheet 2 is in front of you while you are looking at sheet 5 -
+   and a piece can be dragged straight from one to the other without the page scrolling out
+   from under the pointer, which is what made moving house impossible before. */
+.sheetwrap.board{flex-direction:row; flex-wrap:wrap; align-items:flex-start;
+  justify-content:center; gap:30px 16px}
+.sheetwrap.board .sheet{flex:0 0 auto; max-width:none}
+/* the sheet a dragged piece would land on */
+.sheet.drop{outline:2px solid var(--accent); outline-offset:3px}
+/* a piece you can pick up and put somewhere better than the packer chose */
+/* the piece's own title bar is the handle: faint until you go near it, so it is findable
+   without being another line on a drawing that is already all lines */
+.pc-grab{fill:transparent; stroke:var(--accent); stroke-width:.25; stroke-dasharray:1.5 2;
+  cursor:grab; rx:1.4; opacity:.4}
+.pc-grab:hover{fill:color-mix(in srgb, var(--accent) 8%, transparent);
+  stroke-width:.45; stroke-dasharray:3 2; opacity:1}
+.pc-drag.grabbing .pc-grab{cursor:grabbing; fill:color-mix(in srgb, var(--accent) 14%, transparent);
+  stroke-width:.6; stroke-dasharray:none; opacity:1}
+.pc-drag.held .pc-grab{stroke-width:.4; stroke-dasharray:2 2; opacity:.8}
+/* an assembly diagram is on the pattern because it is usually wanted, not because it has to
+   be there: the cross takes it off, and the toolbar puts them all back */
+.pc-nx{cursor:pointer; opacity:0; transition:opacity .12s}
+.pc-drag:hover .pc-nx{opacity:1}
+.pc-nxc{fill:var(--paper); stroke:var(--paper-mark); stroke-width:.5}
+.pc-nxm{stroke:var(--paper-mark); stroke-width:.7; fill:none; stroke-linecap:round}
+.pc-nx:hover .pc-nxc{fill:var(--paper-mark)}
+.pc-nx:hover .pc-nxm{stroke:var(--paper)}
+.pdfmsg{max-width:34ch; line-height:1.35}
+/* a suggestion, and what taking it buys */
+.fitlist{display:flex; flex-direction:column; gap:8px; margin:10px 0 4px}
+.fitrow{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.fitrow>span{font-size:12px; color:var(--text-2); line-height:1.35; flex:1 1 240px}
+.fitrow .btn{white-space:nowrap}
+/* the rows that are out of line, worst first &#x2014; short enough to read standing up */
+.symtab{width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:12px}
+.symtab th,.symtab td{text-align:left; padding:5px 8px 5px 0; border-bottom:1px solid var(--line);
+  vertical-align:baseline}
+.symtab th{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-3); font-weight:600}
+.symtab .n{text-align:right; font-family:var(--f-mono); white-space:nowrap}
+.symtab small{color:var(--text-3)}
+.sheet{
+  background:var(--paper); border:1px solid var(--paper-edge); border-radius:2px;
+  box-shadow:0 2px 4px rgba(0,0,0,.14), 0 18px 40px -20px rgba(0,0,0,.4); position:relative; max-width:100%;
+}
+.sheet svg{display:block}
+.sheet .pglab{
+  position:absolute; top:-19px; left:0; font-family:var(--f-mono); font-size:10.5px; color:var(--text-3); letter-spacing:.02em;
+}
+.zoomfit .sheet{width:100%}
+.zoomfit .sheet svg{width:100%; height:auto}
+/* a note you can pick up and put somewhere it can be read, or strike off altogether.
+   Only on the sheets: the full pattern is a proportion view, and nothing is draggable there */
+.sheetwrap:not(.fullview) .pc-lab{cursor:move}
+.sheetwrap:not(.fullview) .pc-lab:hover{paint-order:stroke; stroke:var(--accent); stroke-width:1.4; stroke-linejoin:round}
+.pc-lab.moved{cursor:grabbing}
+
+/* tables */
+.tbl{width:100%; overflow-x:auto}
+table{border-collapse:collapse; width:100%; font-size:13px; min-width:640px}
+th{
+  font-family:var(--f-disp); font-size:12px; letter-spacing:.09em; text-transform:uppercase; color:var(--text-3);
+  text-align:left; padding:8px 12px; border-bottom:1px solid var(--line-strong); white-space:nowrap; font-weight:600;
+}
+td{padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--f-mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+td.f{font-family:var(--f-mono); font-size:11px; color:var(--text-3); line-height:1.45}
+tbody tr:hover{background:var(--surface-2)}
+.pill{
+  display:inline-block; font-family:var(--f-disp); font-size:11.5px; letter-spacing:.07em; text-transform:uppercase;
+  padding:1px 7px; border-radius:3px; border:1px solid var(--line-strong); color:var(--text-2); white-space:nowrap;
+}
+.pill.lea{background:var(--accent-soft); border-color:var(--accent-line); color:var(--accent-2)}
+.pill.lin{background:var(--surface-2)}
+
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(292px,1fr)); gap:18px; align-items:start}
+.steps{counter-reset:s; list-style:none; margin:0; padding:6px 16px 14px}
+.steps li{counter-increment:s; position:relative; padding:7px 0 7px 34px; font-size:13.5px; border-bottom:1px dashed var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{
+  content:counter(s,decimal-leading-zero); position:absolute; left:0; top:7px;
+  font-family:var(--f-mono); font-size:11px; color:var(--accent); font-weight:500;
+}
+.steps li b{font-weight:600}
+.kv{padding:4px 16px 14px}
+.kv div{display:flex; justify-content:space-between; gap:12px; padding:6px 0; border-bottom:1px dashed var(--line); font-size:13px}
+.kv div:last-child{border-bottom:0}
+.kv span:last-child{font-family:var(--f-mono); font-variant-numeric:tabular-nums; text-align:right}
+.warn{
+  display:flex; gap:9px; padding:10px 14px; margin:0 0 16px; border-radius:9px; font-size:13px;
+  background:var(--accent-soft); border:1px solid var(--accent-line); color:var(--accent-2);
+}
+.warn b{font-weight:600}
+.note{font-size:12.5px; color:var(--text-3); padding:0 16px 14px; line-height:1.5}
+.btn{
+  font-family:var(--f-disp); font-size:13.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:500;
+  background:var(--surface-2); color:var(--text); border:1px solid var(--line); border-radius:7px;
+  padding:6px 12px; cursor:pointer; white-space:nowrap;
+}
+.btn:hover{background:var(--surface-3)}
+.btn.pri{background:var(--accent-soft); border-color:var(--accent-line); color:var(--accent-2); font-weight:600}
+h2.pt{font-size:19px; letter-spacing:.06em; text-transform:uppercase; margin:0 0 4px}
+p.pd{font-size:13.5px; color:var(--text-2); margin:0 0 18px; max-width:66ch}
+details.fx>summary{cursor:pointer; font-family:var(--f-mono); font-size:11.5px; color:var(--text-3); padding:0 16px 14px}
+details.fx>summary:hover{color:var(--text-2)}
+
+@media (max-width:1000px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:static; height:auto; border-right:0; border-bottom:1px solid var(--line)}
+  .elev{grid-template-columns:1fr}
+  .wtop{top:0}
+}
+@media print{
+  body{background:#fff!important; background-image:none!important}
+  .top,.rail,.wtop,.noprint,.legend{display:none!important}
+  .shell{display:block}
+  .pane{display:none!important; padding:0}
+  .pane#p-pattern{display:block!important}
+  /* whatever the sheets are doing on screen, on paper they are one to a page */
+  .sheetwrap,.sheetwrap.board{gap:0; padding:0; display:block}
+  .sheet{box-shadow:none; border:0; border-radius:0; break-after:page; page-break-after:always}
+  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .sheet .pglab{display:none}
+  .sheet svg{width:auto!important; height:auto!important; max-width:none!important}
+  .pane#p-pattern>:not(.sheetwrap):not(.cntsheet){display:none!important}
+}

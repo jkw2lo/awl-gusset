@@ -1,0 +1,246 @@
+/* pattern-card ink &#x2014; deliberately theme-independent: this is paper */
+.sheet text{font-family:var(--f-mono); letter-spacing:.01em}
+.pc-bg{fill:var(--paper)}
+.pc-cut{fill:var(--paper-fill); stroke:var(--paper-ink); stroke-width:.45; stroke-linejoin:round}
+.pc-st{fill:none; stroke:var(--paper-rule); stroke-width:.22; stroke-dasharray:2 1.2}
+.pc-fold{fill:none; stroke:var(--paper-rule); stroke-width:.32; stroke-dasharray:5 1.6 1 1.6}
+.pc-mk{fill:none; stroke:var(--paper-mark); stroke-width:.3; stroke-dasharray:2.6 1.6}
+.pc-ctr{fill:none; stroke:var(--paper-rule); stroke-width:.18; stroke-dasharray:7 1.6 1 1.6; opacity:.55}
+.pc-notch{stroke:var(--paper-ink); stroke-width:.5; fill:none}
+.pc-hole{fill:none; stroke:var(--paper-mark); stroke-width:.42}
+/* a run that goes through two layers at once is pricked with both of them in the clam, so it
+   is worth being able to spot at a glance which ones those are */
+.pc-st.thru{stroke:var(--paper-thru); stroke-dasharray:3.6 1.2}
+.pc-hl.thru{stroke:var(--paper-thru)}
+.pc-hld.thru{fill:var(--paper-thru)}
+.pc-cnt{fill:var(--paper-thru); font-weight:600; paint-order:stroke; stroke:var(--paper);
+  stroke-width:.9; stroke-linejoin:round; letter-spacing:.02em}
+/* how far a row sits from the cut edge it follows &#x2014; quieter than the count above it,
+   because the count is what you check first and this is what you set the divider to */
+.pc-ins{fill:var(--paper-dim); paint-order:stroke; stroke:var(--paper);
+  stroke-width:.8; stroke-linejoin:round; letter-spacing:.02em}
+.pc-hatch{fill:none; stroke:var(--paper-rule); stroke-width:.28; opacity:.7}
+/* an assembly drawing is not to scale, and must never be mistaken for one that is */
+.pc-dg .pc-cut{stroke-dasharray:none; stroke-width:.5; fill:var(--paper-fill)}
+.pc-dg{opacity:.98}
+/* a counting tick, and the tint over anything that folds under */
+.pc-tick{fill:none; stroke:var(--paper-thru); stroke-width:.42; stroke-linecap:round}
+.pc-under{fill:var(--paper-fill2); stroke:none; opacity:.85}
+/* the count sheet: paper, like everything else that comes out of the printer */
+.cntsheet{
+  background:var(--paper); color:var(--paper-ink); border:1px solid var(--paper-edge);
+  border-radius:2px; box-shadow:0 2px 4px rgba(0,0,0,.14), 0 18px 40px -20px rgba(0,0,0,.4);
+  padding:20px 24px 24px; margin:0 auto 30px; max-width:900px; width:100%;
+}
+.cntsheet h3{font-family:var(--f-disp); font-size:17px; letter-spacing:.06em; text-transform:uppercase; margin:0 0 6px}
+.cntsheet p{font-size:12.5px; line-height:1.5; color:var(--paper-dim); margin:0 0 14px; max-width:70ch}
+.cntsheet .thru{color:var(--paper-thru); font-weight:700}
+.cntsheet table{width:100%; border-collapse:collapse; font-family:var(--f-mono); font-size:12px}
+.cntsheet th,.cntsheet td{text-align:left; padding:5px 8px; border-bottom:1px solid var(--paper-grid); vertical-align:top}
+.cntsheet thead th{font-family:var(--f-disp); font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--paper-dim); border-bottom:1px solid var(--paper-rule)}
+.cntsheet tbody th{font-weight:600; white-space:nowrap; border-right:1px solid var(--paper-grid); background:var(--paper-2)}
+.cntsheet .n{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+.cntsheet small{color:var(--paper-dim); font-size:10.5px}
+@media print{ .cntsheet{break-before:page; box-shadow:none; border:0; max-width:none; padding:12mm} }
+.pc-hx{stroke:var(--paper-mark); stroke-width:.22; fill:none}
+.pc-grain{fill:none; stroke:var(--paper-rule); stroke-width:.26}
+.pc-dim{fill:none; stroke:var(--paper-dim); stroke-width:.2}
+.pc-dimA{fill:var(--paper-dim); stroke:none}
+.pc-reg{stroke:var(--paper-grid2); stroke-width:.26; fill:none}
+.pc-trim{fill:none; stroke:var(--paper-grid2); stroke-width:.2; stroke-dasharray:3 2}
+.pc-ov{fill:none; stroke:var(--paper-mark); stroke-width:.3; stroke-dasharray:3 2}
+/* a lane or a tile is a WINDOW onto a piece bigger than the paper: its edge has to be drawn,
+   or two halves of a gusset on one sheet read as one drawing with a step in it */
+.pc-band{fill:none; stroke:var(--paper-grid2); stroke-width:.3; stroke-dasharray:6 3}
+.pc-brk{fill:none; stroke:var(--paper-ink); stroke-width:.35}
+.pc-cutline{fill:none; stroke:var(--paper-ink); stroke-width:.45; stroke-linejoin:round}
+.pc-hl{fill:none; stroke:var(--paper-ink); stroke-width:.3; stroke-linecap:round}
+.pc-hld{fill:var(--paper-ink); stroke:none}
+.pc-hlm{fill:none; stroke:var(--paper-mark); stroke-width:.3}
+.fullview .pc-cut,.fullview .pc-cutline,.fullview .pc-st,.fullview .pc-fold,.fullview .pc-mk,
+.fullview .pc-ctr,.fullview .pc-notch,.fullview .pc-hole,.fullview .pc-hx,.fullview .pc-grain,
+.fullview .pc-dim,.fullview .pc-hl,.fullview .pc-hlm,.fullview .pc-brk{vector-effect:non-scaling-stroke}
+.fullview .sheet{padding:0}
+.pc-name{fill:var(--paper-ink); font-weight:600; letter-spacing:.05em;
+  paint-order:stroke; stroke:var(--paper); stroke-width:1.3; stroke-linejoin:round}
+
+.pc-ti{fill:var(--paper-ink)} .pc-td{fill:var(--paper-dim)} .pc-tf{fill:var(--paper-rule)}
+/* every red note gets a paper-coloured halo, so a label that lands on a stitch line still
+   reads instead of dissolving into it */
+.pc-tm{fill:var(--paper-mark); paint-order:stroke; stroke:var(--paper); stroke-width:1.15; stroke-linejoin:round}
+.pc-dt{fill:var(--paper-dim); paint-order:stroke; stroke:var(--paper); stroke-width:1; stroke-linejoin:round}
+/* elevation */
+.elevbox svg text{font-family:var(--f-mono)}
+.ev-body{fill:var(--surface-3); stroke:var(--text-2); stroke-width:1.4; vector-effect:non-scaling-stroke}
+.ev-in{fill:none; stroke:var(--line-strong); stroke-width:1; stroke-dasharray:5 4; vector-effect:non-scaling-stroke}
+.ev-flap{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.4; vector-effect:non-scaling-stroke}
+.ev-pkt{fill:var(--surface); stroke:var(--text-2); stroke-width:1.2; stroke-dasharray:5 4; vector-effect:non-scaling-stroke; cursor:grab}
+.ev-pkt:hover{stroke:var(--accent); fill:var(--accent-soft)}
+.ev-pkt.grabbing{cursor:grabbing; stroke:var(--accent)}
+.ev-strap{fill:none; stroke:var(--text-2); stroke-width:3; stroke-linecap:round; vector-effect:non-scaling-stroke}
+.ev-ghost{fill:none; stroke:var(--text-3); stroke-width:1; stroke-dasharray:3 4; vector-effect:non-scaling-stroke}
+.ev-hw{fill:var(--crit); stroke:none}
+.ev-dim{fill:none; stroke:var(--text-3); stroke-width:1; vector-effect:non-scaling-stroke}
+.ev-t{fill:var(--text-3)}
+.ev-tl{fill:var(--text-2)}
+.ev-hdl{fill:var(--accent); stroke:var(--surface); stroke-width:2; vector-effect:non-scaling-stroke; cursor:ns-resize}
+.ev-hdl:hover{fill:var(--accent-2)}
+.ev-anch{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.2; stroke-dasharray:4 3; vector-effect:non-scaling-stroke}
+.ev-flapt{fill:color-mix(in srgb, var(--accent-soft) 60%, transparent); stroke:var(--accent);
+  stroke-width:1.2; stroke-dasharray:6 3; vector-effect:non-scaling-stroke}
+.ev-el{fill:var(--surface); stroke:var(--text-2); stroke-width:1.2; vector-effect:non-scaling-stroke}
+.ev-el.back{fill:none; stroke:var(--text-3); stroke-dasharray:5 4}
+.ev-elg.drag{cursor:grab}
+.ev-elg.drag:hover .ev-el{stroke:var(--accent); fill:var(--accent-soft)}
+.ev-elg.grabbing{cursor:grabbing}
+.ev-elg.grabbing .ev-el{stroke:var(--accent)}
+/* ---------- editing on the drawing ----------
+   An edge you can pull, a knob you can turn, and a menu that comes to the part you clicked
+   instead of sending you back up the rail to look for it. */
+.evwrap{position:relative}
+.ev-pick{cursor:pointer}
+.ev-pick:hover{stroke:var(--accent)}
+.ev-sel{stroke:var(--accent); stroke-width:2.6}
+/* The whole set of handles is one layer painted over the drawing. A handle has to be
+   visible BEFORE the pointer finds it, or the only way to discover it is to sweep the
+   drawing: so a size adjuster is a soft rail sitting on its edge all the time, with a
+   paper-coloured backing under it that keeps it readable over a stitch line or a pocket,
+   and it thickens and brightens under the pointer. */
+.ev-grip{fill:none; stroke:transparent; stroke-width:14; vector-effect:non-scaling-stroke; stroke-linecap:round}
+.ev-grip.x{cursor:ew-resize}
+.ev-grip.y{cursor:ns-resize}
+.ev-gripr{fill:none; stroke:var(--surface); stroke-width:7; stroke-linecap:round;
+  vector-effect:non-scaling-stroke; opacity:.7; transition:stroke-width .12s}
+.ev-gripv{fill:none; stroke:var(--accent); stroke-width:3; stroke-linecap:round;
+  vector-effect:non-scaling-stroke; opacity:.62; transition:opacity .12s, stroke-width .12s}
+.ev-gk:hover .ev-gripv,.ev-gk.grabbing .ev-gripv{opacity:1; stroke-width:5.5}
+.ev-gk:hover .ev-gripr,.ev-gk.grabbing .ev-gripr{stroke-width:10}
+.ev-knobg{cursor:move}
+.ev-knob{fill:var(--surface); stroke:var(--accent); stroke-width:1.8; vector-effect:non-scaling-stroke}
+.ev-karr{fill:none; stroke:var(--accent); stroke-width:1.4; stroke-linecap:round; vector-effect:non-scaling-stroke}
+.ev-hit{fill:transparent; stroke:none}
+.ev-knobg:hover .ev-knob,.ev-knobg.grabbing .ev-knob{fill:var(--accent-soft)}
+.ev-knobg:hover .ev-karr,.ev-knobg.grabbing .ev-karr{stroke:var(--accent-2); stroke-width:2}
+/* at its geometric limit the knob says so - it used to just stop, which reads as jammed */
+.ev-knobg.atlim .ev-knob{stroke:var(--warn); stroke-dasharray:2.6 2.2}
+.ev-knobg.atlim .ev-karr{stroke:var(--warn)}
+.ev-tn{fill:var(--accent-2); font-weight:600; paint-order:stroke; stroke:var(--surface);
+  stroke-width:3; stroke-linejoin:round}
+.ev-tn.atlim{fill:var(--warn)}
+.ev-rivh{fill:transparent; stroke:none; cursor:move}
+.ev-rivg:hover .ev-hw{stroke:var(--accent); stroke-width:1.5}
+.ev-rot{fill:var(--surface); stroke:var(--accent); stroke-width:2; vector-effect:non-scaling-stroke; cursor:grab}
+.ev-rot:hover,.ev-rot.grabbing{fill:var(--accent-soft)}
+.ev-handg{cursor:ns-resize}
+.ev-handg:hover .ev-hand{stroke:var(--accent); fill:var(--accent-soft)}
+.ev-tabg{cursor:grab}
+.ev-tabg:hover .ev-anch{stroke-width:2.2}
+.ev-tabg.grabbing{cursor:grabbing}
+.insp{
+  position:fixed; z-index:60; width:270px; max-height:min(72vh,520px); overflow:auto;
+  background:var(--surface); border:1px solid var(--line-strong); border-radius:10px;
+  box-shadow:var(--shadow);
+}
+.insp[hidden]{display:none}
+.insp .ihead{
+  position:sticky; top:0; z-index:2; display:flex; align-items:center; gap:8px; padding:9px 12px;
+  background:var(--surface-2); border-bottom:1px solid var(--line); border-radius:10px 10px 0 0;
+  font-family:var(--f-disp); font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+}
+.insp .ix{margin-left:auto; background:none; border:0; color:var(--text-3); font-size:18px;
+  line-height:1; cursor:pointer; padding:0 2px}
+.insp .ix:hover{color:var(--text)}
+.insp .mbody{padding:11px 12px 13px}
+.insp .isec{font-family:var(--f-disp); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text-3); margin:10px 0 0}
+.insp .isec:first-child{margin-top:0}
+.v3dbox{padding:10px 14px 4px; cursor:grab; touch-action:none}
+.v3dbox.turning{cursor:grabbing}
+.v3dbox svg{width:100%; height:auto; max-height:430px; display:block}
+/* The solid model is lit, so every face gets its own fill, mixed between a lit leather
+   and a shadowed one by the angle it sits at. The class carries the outline and a fallback. */
+.v-lea,.v-lea2,.v-mtl,.v-acc{stroke:var(--lea-line); stroke-width:.7; vector-effect:non-scaling-stroke;
+  stroke-linejoin:round; stroke-linecap:round}
+.v-lea{fill:var(--lea-hi)}
+/* a round body has no facets on it, so the quads that approximate one must not show their
+   own edges - the shading gradient is what makes it read as round */
+.v-sm{fill:var(--lea-hi); stroke:none}
+.v-lea2{fill:var(--lea2-hi)}
+.v-mtl{fill:var(--mtl-hi); stroke:var(--mtl-lo)}
+.v-acc{fill:var(--acc-hi)}
+.v-stitch{fill:none; stroke:var(--thr); stroke-width:1.1; stroke-linecap:round;
+  stroke-dasharray:2.6 2.4; vector-effect:non-scaling-stroke; opacity:.9}
+.v-crease{fill:none; stroke:var(--lea-line); stroke-width:.7; opacity:.35; vector-effect:non-scaling-stroke}
+.v-ground{fill:var(--lea-line); opacity:.15}
+.v-shade{fill:var(--lea-line); stroke:none; opacity:.22}
+.ev-open{fill:none; stroke:var(--accent); stroke-width:1.6; vector-effect:non-scaling-stroke; stroke-linecap:round; stroke-linejoin:round}
+.ev-roll{fill:var(--surface-2); stroke:var(--text-3); stroke-width:1.2; stroke-dasharray:7 4; vector-effect:non-scaling-stroke}
+.ev-hand{fill:var(--surface-3); stroke:var(--text-2); stroke-width:1.2; stroke-linejoin:round; vector-effect:non-scaling-stroke}
+.ev-belt{fill:var(--surface-3); stroke:var(--text-3); stroke-width:1.2; stroke-dasharray:6 4; vector-effect:non-scaling-stroke}
+/* the bench under the drawing: fine every 10 mm, heavier every 50, and never loud enough to
+   be mistaken for something that is part of the bag */
+.ev-gridg{pointer-events:none}
+.ev-gridl{fill:none; stroke:var(--text-3); stroke-width:.5; vector-effect:non-scaling-stroke; opacity:.16}
+.ev-gridl.maj{stroke-width:.8; opacity:.30}
+/* both centre lines of every face, always drawn: symmetry is what you check by eye */
+.ev-ctrg{pointer-events:none}
+.ev-ctrl{fill:none; stroke:var(--accent); stroke-width:1; stroke-dasharray:10 4 2.5 4;
+  vector-effect:non-scaling-stroke; opacity:.42}
+.ev-gd{fill:none; stroke:var(--text-3); stroke-width:1; stroke-dasharray:6 5; vector-effect:non-scaling-stroke}
+.ev-gd.on{stroke:var(--crit); stroke-width:1.6; stroke-dasharray:none}
+.ev-gd2{fill:none; stroke:var(--crit); stroke-width:1; vector-effect:non-scaling-stroke; opacity:.75}
+.ev-gt{fill:var(--crit); font-family:var(--f-mono); paint-order:stroke; stroke:var(--surface); stroke-width:2.5; stroke-linejoin:round}
+.ev-ztape{fill:none; stroke:var(--text-3); stroke-width:1.1; stroke-dasharray:4 3; vector-effect:non-scaling-stroke}
+.ev-zchain{fill:none; stroke:var(--text-2); stroke-linecap:butt; stroke-dasharray:1.6 1.6}
+.ev-zslide{fill:var(--crit); stroke:none}
+.insidebox svg text{font-family:var(--f-mono)}
+.in-wall{fill:var(--surface-2); stroke:var(--text-2); stroke-width:1.4; vector-effect:non-scaling-stroke}
+.in-side{fill:var(--surface-3); stroke:var(--text-3); stroke-width:1.2; vector-effect:non-scaling-stroke}
+.in-sec{fill:var(--surface-3); stroke:var(--text-2); stroke-width:1.4; vector-effect:non-scaling-stroke}
+.in-corner{fill:none; stroke:var(--text-3); stroke-width:1; stroke-dasharray:2 4; vector-effect:non-scaling-stroke}
+.in-rim{fill:none; stroke:var(--accent); stroke-width:2; vector-effect:non-scaling-stroke}
+.in-rule{fill:none; stroke:var(--text-3); stroke-width:.9; stroke-dasharray:3 3; vector-effect:non-scaling-stroke}
+.in-f{fill:color-mix(in srgb, var(--surface) 82%, transparent); stroke:var(--text-2); stroke-width:1.2; vector-effect:non-scaling-stroke}
+.in-lab{fill:var(--text-2); paint-order:stroke; stroke:var(--surface); stroke-width:2.4; stroke-linejoin:round; letter-spacing:.04em}
+.in-zip{fill:var(--surface-2); stroke-dasharray:5 4}
+.in-cards{fill:var(--accent-soft); stroke:var(--accent-line)}
+.in-g.drag{cursor:grab}
+.in-g.drag:hover .in-f{stroke:var(--accent); fill:var(--accent-soft)}
+.in-g.grabbing{cursor:grabbing}
+.in-g.grabbing .in-f{stroke:var(--accent)}
+.ev-el.drag:hover{stroke:var(--accent); fill:var(--accent-soft)}
+.ev-el.grabbing{cursor:grabbing; stroke:var(--accent)}
+/* ---------- the shape editor ----------
+   A point is the only thing here you can be aiming at, so a point is what has the big hit
+   area and what paints last. Skipped points stay on the drawing, hollow: the outline goes
+   past them, but they are still yours to put back. */
+.freebox svg{touch-action:none}
+.fp-hit{fill:transparent; stroke:none}
+.fp-add{cursor:copy; opacity:.5; transition:opacity .12s}
+.fp-add:hover{opacity:1}
+.fp-addc{fill:var(--surface); stroke:var(--accent); stroke-width:1.2; vector-effect:non-scaling-stroke}
+.fp-addm{stroke:var(--accent); stroke-width:1.4; fill:none; vector-effect:non-scaling-stroke; stroke-linecap:round}
+.fp-pt{cursor:move}
+.fp-dot{fill:var(--accent); stroke:var(--surface); stroke-width:1.6; vector-effect:non-scaling-stroke}
+.fp-pt:hover .fp-dot,.fp-pt.grabbing .fp-dot{fill:var(--accent-2)}
+.fp-pt.skip .fp-dot{fill:var(--surface); stroke:var(--text-3); stroke-dasharray:2.4 2}
+.fp-pt.mouth .fp-dot{fill:var(--crit)}
+.fp-pt.sel .fp-dot{fill:var(--accent-2); stroke:var(--accent-2); stroke-width:3}
+.fp-pt.anchor .fp-dot{stroke:var(--crit)}
+/* every point says which one it is: the rail talks in point numbers and the drawing did not */
+.fp-n{fill:var(--text-3); font-family:var(--f-mono); pointer-events:none;
+  paint-order:stroke; stroke:var(--surface); stroke-width:2.4; stroke-linejoin:round}
+.fp-pt.sel .fp-n{fill:var(--accent-2); font-weight:600}
+.fp-pt.mouth .fp-n{fill:var(--crit)}
+/* the box you drag across the drawing to take several points at once */
+.fp-band{fill:color-mix(in srgb, var(--accent) 12%, transparent); stroke:var(--accent);
+  stroke-width:1; stroke-dasharray:4 3; vector-effect:non-scaling-stroke; pointer-events:none}
+.fp-rad{fill:none; stroke:var(--accent-line); stroke-width:1; stroke-dasharray:3 3;
+  vector-effect:non-scaling-stroke; opacity:.6}
+.fp-mouth{fill:none; stroke:var(--crit); stroke-width:4.5; stroke-linecap:round;
+  vector-effect:non-scaling-stroke}
+.fp-body{fill:none; stroke:var(--accent); stroke-width:2.4; stroke-linecap:round;
+  vector-effect:non-scaling-stroke}
+.fp-mt{fill:var(--crit); font-family:var(--f-mono); letter-spacing:.14em; font-weight:600;
+  paint-order:stroke; stroke:var(--surface); stroke-width:3; stroke-linejoin:round}

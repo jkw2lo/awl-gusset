@@ -1,0 +1,376 @@
+{
+  "format": "awl-gusset/design",
+  "version": 1,
+  "name": "Crescent moon bag",
+  "saved": "2026-08-31T16:16:02.241Z",
+  "app": "Awl & Gusset",
+  "design": {
+    "units": "mm",
+    "construction": "free",
+    "W": 300,
+    "H": 210,
+    "D": 70,
+    "corner": 0,
+    "topR": 0,
+    "taper": 0,
+    "squareness": 0,
+    "squarenessTop": 0,
+    "shoulder": 70,
+    "bellows": 40,
+    "gussetStyle": "wrap",
+    "thickness": 2,
+    "sa": 5,
+    "entasis": 0,
+    "edge": "raw",
+    "turn": 9,
+    "lined": true,
+    "top": "magnet",
+    "flap": {
+      "drop": 70,
+      "attach": 40,
+      "style": "round",
+      "radius": 30,
+      "closure": "magnet",
+      "cInset": 20,
+      "lined": true,
+      "closures": 1,
+      "cSpan": 150,
+      "pull": {
+        "on": false,
+        "w": 26,
+        "attach": 30,
+        "drop": 34,
+        "tip": "round",
+        "r": 3,
+        "fix": "stitchbox",
+        "rivetPat": "across2",
+        "rivetInset": 8,
+        "rivetPitch": 11,
+        "rivetEdge": 6,
+        "rivets": 2
+      }
+    },
+    "roll": {
+      "turns": 3,
+      "turn": 60,
+      "closure": "clip",
+      "stiffener": true,
+      "anchorY": 120
+    },
+    "draw": {
+      "n": 10,
+      "size": 8,
+      "drop": 26,
+      "style": "eyelet",
+      "toggle": true
+    },
+    "pocket": {
+      "on": false,
+      "w": 120,
+      "h": 80,
+      "x": 0,
+      "y": 20,
+      "radius": 6,
+      "topFold": 12
+    },
+    "slip": {
+      "on": false,
+      "w": 120,
+      "h": 80,
+      "x": 0,
+      "y": 30,
+      "face": "back"
+    },
+    "zipPkt": {
+      "on": false,
+      "w": 120,
+      "h": 100,
+      "y": 30,
+      "face": "back"
+    },
+    "cards": {
+      "on": false,
+      "n": 3,
+      "reveal": 16,
+      "x": 0,
+      "y": 45,
+      "face": "back"
+    },
+    "strap": {
+      "type": "adjust",
+      "width": 16,
+      "drop": 560,
+      "adjust": 100,
+      "build": "two",
+      "attach": "swivel",
+      "anchorY": 14,
+      "anchorX": 0,
+      "tabLen": 34,
+      "tabRot": 0,
+      "tabFix": "stitch",
+      "rivets": 2,
+      "rivetPat": "across2",
+      "rivetInset": 11,
+      "rivetPitch": 13,
+      "rivetEdge": 6.5,
+      "packSpan": 150,
+      "curve": 0,
+      "pad": false,
+      "padW": 70,
+      "padThick": 10,
+      "tip": "round"
+    },
+    "handles": {
+      "on": false,
+      "span": 130,
+      "rise": 85,
+      "width": 22,
+      "attach": 35,
+      "taper": 0,
+      "build": "layered",
+      "core": 9,
+      "ends": "plain",
+      "anchorY": 16,
+      "fix": "stitch",
+      "rivets": 2,
+      "rivetPat": "across2",
+      "rivetInset": 11,
+      "rivetPitch": 13,
+      "rivetEdge": 6.5
+    },
+    "zip": {
+      "style": "rim",
+      "panelH": 35,
+      "gauge": 5,
+      "wrap": 32,
+      "tabs": true
+    },
+    "stitch": {
+      "show": true,
+      "pitch": 3.38,
+      "prongs": 4,
+      "style": "slit",
+      "lean": "right",
+      "slit": 1.6,
+      "reg": 10
+    },
+    "elements": [],
+    "elSeq": 0,
+    "designName": "Crescent moon bag",
+    "sheet": "A4",
+    "waste": 30,
+    "zoom": "fit",
+    "dims": true,
+    "showLining": false,
+    "counts": true,
+    "pv": "sheets",
+    "notes": true,
+    "free": {
+      "pts": [
+        {
+          "x": 0,
+          "y": 1,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.01253604390908819,
+          "y": 0.7774790660436857,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.04951556604879043,
+          "y": 0.5661162608824419,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.1090842587659851,
+          "y": 0.37651019814126646,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.18825509907063326,
+          "y": 0.21816851753197022,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.28305813044122097,
+          "y": 0.09903113209758087,
+          "r": 0,
+          "m": true,
+          "skip": false
+        },
+        {
+          "x": 0.3887395330218428,
+          "y": 0.025072087818176384,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.5,
+          "y": 0,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.6112604669781572,
+          "y": 0.025072087818176384,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.7169418695587791,
+          "y": 0.09903113209758098,
+          "r": 0,
+          "m": true,
+          "skip": false
+        },
+        {
+          "x": 0.8117449009293667,
+          "y": 0.21816851753197022,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.890915741234015,
+          "y": 0.37651019814126646,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.9504844339512095,
+          "y": 0.5661162608824418,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.9874639560909118,
+          "y": 0.7774790660436857,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.83147549014182,
+          "y": 0.5264874396262115,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.8063294150868225,
+          "y": 0.399669756529465,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.7658227040391301,
+          "y": 0.2859061188847599,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.7119865326319694,
+          "y": 0.1909011105191821,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.6475204712999698,
+          "y": 0.11941867925854861,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.5756571175451468,
+          "y": 0.0750432526909058,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.5,
+          "y": 0.060000000000000005,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.4243428824548531,
+          "y": 0.0750432526909058,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.3524795287000302,
+          "y": 0.1194186792585485,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.2880134673680306,
+          "y": 0.1909011105191821,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.23417729596086984,
+          "y": 0.2859061188847599,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.19367058491317746,
+          "y": 0.3996697565294651,
+          "r": 0,
+          "m": false,
+          "skip": false
+        },
+        {
+          "x": 0.16852450985817996,
+          "y": 0.5264874396262115,
+          "r": 0,
+          "m": false,
+          "skip": false
+        }
+      ]
+    },
+    "arrange": {},
+    "labels": {},
+    "dropNotes": {},
+    "view3d": {
+      "yaw": 32,
+      "pitch": 18
+    }
+  }
+}

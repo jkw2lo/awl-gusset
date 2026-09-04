@@ -1,0 +1,161 @@
+{
+ "format": "awl-gusset/design",
+ "version": 1,
+ "name": "Day pack",
+ "saved": "2026-08-25T17:23:00.447Z",
+ "app": "Awl & Gusset",
+ "design": {
+  "units": "mm",
+  "construction": "gusset",
+  "W": 290,
+  "H": 390,
+  "D": 150,
+  "corner": 35,
+  "topR": 0,
+  "taper": 30,
+  "squareness": 0,
+  "squarenessTop": 0,
+  "shoulder": 70,
+  "bellows": 40,
+  "gussetStyle": "wrap",
+  "thickness": 2.4,
+  "sa": 6,
+  "entasis": 0,
+  "edge": "raw",
+  "turn": 8,
+  "lined": true,
+  "top": "flap",
+  "flap": {
+   "drop": 170,
+   "attach": 60,
+   "style": "round",
+   "radius": 45,
+   "closure": "strap",
+   "cInset": 35,
+   "lined": true
+  },
+  "roll": {
+   "turns": 3,
+   "turn": 60,
+   "closure": "clip",
+   "stiffener": true,
+   "anchorY": 120
+  },
+  "draw": {
+   "n": 10,
+   "size": 8,
+   "drop": 26,
+   "style": "eyelet",
+   "toggle": true
+  },
+  "pocket": {
+   "on": false,
+   "w": 200,
+   "h": 150,
+   "x": 0,
+   "y": 35,
+   "radius": 10,
+   "topFold": 14
+  },
+  "slip": {
+   "on": true,
+   "w": 200,
+   "h": 200,
+   "x": 0,
+   "y": 70,
+   "face": "back"
+  },
+  "zipPkt": {
+   "on": false,
+   "w": 180,
+   "h": 160,
+   "y": 50,
+   "face": "back"
+  },
+  "cards": {
+   "on": false,
+   "n": 3,
+   "reveal": 16,
+   "x": 0,
+   "y": 45,
+   "face": "back"
+  },
+  "strap": {
+   "type": "pack",
+   "width": 38,
+   "drop": 620,
+   "adjust": 0,
+   "build": "two",
+   "attach": "sewn",
+   "anchorY": 40,
+   "tabLen": 55,
+   "tabFix": "both",
+   "rivets": 2,
+   "packSpan": 150,
+   "curve": 0,
+   "pad": true,
+   "padW": 68,
+   "padThick": 10,
+   "tip": "round"
+  },
+  "handles": {
+   "on": false,
+   "span": 120,
+   "rise": 70,
+   "width": 24,
+   "attach": 35,
+   "taper": 0,
+   "build": "layered",
+   "core": 9,
+   "ends": "plain",
+   "anchorY": 16,
+   "fix": "stitch",
+   "rivets": 2
+  },
+  "zip": {
+   "style": "rim",
+   "panelH": 32,
+   "gauge": 3,
+   "wrap": 0,
+   "tabs": true
+  },
+  "stitch": {
+   "show": true,
+   "pitch": 4,
+   "prongs": 4,
+   "style": "slit",
+   "lean": "right",
+   "slit": 1.9
+  },
+  "elements": [
+   {
+    "id": 1,
+    "type": "haul",
+    "face": "back",
+    "x": 0,
+    "y": 8,
+    "w": 110,
+    "h": 26,
+    "r": 4,
+    "fix": "stitchbox",
+    "rivets": 2,
+    "mirror": false,
+    "rot": 0,
+    "open": "top"
+   }
+  ],
+  "elSeq": 1,
+  "designName": "Untitled",
+  "sheet": "A4",
+  "waste": 30,
+  "zoom": "fit",
+  "dims": true,
+  "showLining": false,
+  "counts": true,
+  "pv": "sheets",
+  "view3d": {
+   "yaw": 32,
+   "pitch": 18
+  }
+ }
+}

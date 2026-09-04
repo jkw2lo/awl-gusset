@@ -1,0 +1,145 @@
+{
+ "format": "awl-gusset/design",
+ "version": 1,
+ "name": "Boxed-corner tote",
+ "saved": "2026-08-25T17:23:00.445Z",
+ "app": "Awl & Gusset",
+ "design": {
+  "units": "mm",
+  "construction": "boxed",
+  "W": 330,
+  "H": 300,
+  "D": 130,
+  "corner": 22,
+  "topR": 0,
+  "taper": 20,
+  "squareness": 0,
+  "squarenessTop": 0,
+  "shoulder": 70,
+  "bellows": 40,
+  "gussetStyle": "wrap",
+  "thickness": 2.4,
+  "sa": 6,
+  "entasis": 0,
+  "edge": "turned",
+  "turn": 10,
+  "lined": true,
+  "top": "magnet",
+  "flap": {
+   "drop": 95,
+   "attach": 45,
+   "style": "round",
+   "radius": 28,
+   "closure": "turnlock",
+   "cInset": 24,
+   "lined": true
+  },
+  "roll": {
+   "turns": 3,
+   "turn": 60,
+   "closure": "clip",
+   "stiffener": true,
+   "anchorY": 120
+  },
+  "draw": {
+   "n": 10,
+   "size": 8,
+   "drop": 26,
+   "style": "eyelet",
+   "toggle": true
+  },
+  "pocket": {
+   "on": false,
+   "w": 190,
+   "h": 150,
+   "x": 0,
+   "y": 40,
+   "radius": 0,
+   "topFold": 16
+  },
+  "slip": {
+   "on": true,
+   "w": 170,
+   "h": 140,
+   "x": 0,
+   "y": 70,
+   "face": "back"
+  },
+  "zipPkt": {
+   "on": false,
+   "w": 170,
+   "h": 150,
+   "y": 45,
+   "face": "back"
+  },
+  "cards": {
+   "on": false,
+   "n": 3,
+   "reveal": 16,
+   "x": 0,
+   "y": 45,
+   "face": "back"
+  },
+  "strap": {
+   "type": "handles",
+   "width": 24,
+   "drop": 300,
+   "adjust": 0,
+   "build": "two",
+   "attach": "sewn",
+   "anchorY": 26,
+   "tabLen": 40,
+   "tabFix": "stitch",
+   "rivets": 2,
+   "packSpan": 150,
+   "curve": 0,
+   "pad": false,
+   "padW": 70,
+   "padThick": 10,
+   "tip": "round"
+  },
+  "handles": {
+   "on": true,
+   "span": 150,
+   "rise": 110,
+   "width": 24,
+   "attach": 40,
+   "taper": 6,
+   "build": "layered",
+   "core": 9,
+   "ends": "plain",
+   "anchorY": 26,
+   "fix": "stitch",
+   "rivets": 2
+  },
+  "zip": {
+   "style": "rim",
+   "panelH": 35,
+   "gauge": 5,
+   "wrap": 32,
+   "tabs": true
+  },
+  "stitch": {
+   "show": true,
+   "pitch": 3.85,
+   "prongs": 4,
+   "style": "slit",
+   "lean": "right",
+   "slit": 1.7
+  },
+  "elements": [],
+  "elSeq": 0,
+  "designName": "Untitled",
+  "sheet": "A4",
+  "waste": 30,
+  "zoom": "fit",
+  "dims": true,
+  "showLining": false,
+  "counts": true,
+  "pv": "sheets",
+  "view3d": {
+   "yaw": 32,
+   "pitch": 18
+  }
+ }
+}

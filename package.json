@@ -1,0 +1,13 @@
+{
+  "name": "awl-gusset",
+  "version": "2.0.0",
+  "description": "A parametric flat-pattern drafter for hand-sewn leather bags.",
+  "homepage": "https://jkw2lo.github.io/awl-gusset/",
+  "repository": { "type": "git", "url": "https://github.com/jkw2lo/awl-gusset.git" },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node tests/check.js",
+    "start": "python3 -m http.server 8731"
+  }
+}

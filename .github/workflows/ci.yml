@@ -1,0 +1,19 @@
+# The drafter has no dependencies and no build step, so CI is exactly what a maintainer
+# runs locally: the assertion suite, over the same files the site serves.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: node tests/check.js
+        run: npm test

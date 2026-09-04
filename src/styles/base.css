@@ -1,0 +1,23 @@
+/* The page frame.
+
+   Awl & Gusset began life as a Claude artifact, where the host page supplied a small reset
+   before the app's own stylesheet. This file is that reset, written out so the drafter looks
+   the same served from anywhere. Everything below is the floor the rest of the CSS builds on;
+   the drafter's own tokens and rules live in app.css.
+
+   `color-scheme` is `light dark` rather than the artifact's fixed `light`: with no host to
+   flip it, the scrollbars and form controls follow the reader's own setting, which is what
+   app.css does with its colours too. */
+:root{ color-scheme: light dark }
+
+body{
+  margin:0; padding:0;
+  font:14px -apple-system, BlinkMacSystemFont, sans-serif;
+  background:#faf9f5; color:#141413;
+}
+
+img{ max-width:100% }
+
+/* The inspector and the menu are hidden with the `hidden` attribute and shown by removing it.
+   Both carry a `display` of their own in app.css, which would otherwise win. */
+[hidden]:not([hidden="until-found"]){ display:none!important }

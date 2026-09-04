@@ -1,0 +1,526 @@
+<title>Awl &amp; Gusset Rebuild Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* A brief about a drafting tool, so it is set like a drafting sheet: cool paper, hairline
+   rules, annotations in the margin, and the one hot colour reserved for the same thing the
+   pattern reserves it for - mark this, it matters. */
+:root{
+  --ground:#EEF2F5; --surface:#FFFFFF; --surface-2:#F6F8FA;
+  --ink:#141D26; --ink-2:#4E5D6B; --ink-3:#7C8B98;
+  --rule:#D3DCE3; --rule-2:#B7C4CD;
+  --mark:#A2402A; --mark-soft:#F7E9E4; --mark-line:#D9A392;
+  --thru:#1C6885; --thru-soft:#E2EFF4;
+  --good:#2C6547;
+  --f-disp:"Archivo",'Helvetica Neue',Arial,sans-serif;
+  --f-body:"Newsreader",Georgia,'Times New Roman',serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,'SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E141A; --surface:#151E26; --surface-2:#1B252E;
+    --ink:#E6EDF2; --ink-2:#9DACB8; --ink-3:#75838F;
+    --rule:#28333D; --rule-2:#3B4954;
+    --mark:#DE8267; --mark-soft:#2E1C17; --mark-line:#7A4232;
+    --thru:#63B6D2; --thru-soft:#15272F;
+    --good:#6FBF92;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E141A; --surface:#151E26; --surface-2:#1B252E;
+  --ink:#E6EDF2; --ink-2:#9DACB8; --ink-3:#75838F;
+  --rule:#28333D; --rule-2:#3B4954;
+  --mark:#DE8267; --mark-soft:#2E1C17; --mark-line:#7A4232;
+  --thru:#63B6D2; --thru-soft:#15272F;
+  --good:#6FBF92;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--f-body); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 96px}
+h1,h2,h3{font-family:var(--f-disp); font-weight:600; text-wrap:balance; margin:0; letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--mark); text-decoration-thickness:1px; text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--mark); outline-offset:3px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
+
+/* ---- masthead ---- */
+.top{border-bottom:1px solid var(--rule-2); padding:56px 0 30px; margin-bottom:44px}
+.eyebrow{font-family:var(--f-mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:18px}
+h1{font-size:clamp(34px,5.4vw,54px); line-height:1.05; font-weight:700; letter-spacing:-.025em}
+.top .lede{font-size:19px; color:var(--ink-2); max-width:62ch; margin-top:18px}
+.meta{display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:26px;
+  font-family:var(--f-mono); font-size:12px; color:var(--ink-3)}
+.meta b{color:var(--ink-2); font-weight:500}
+.meta .asat{color:var(--mark); font-style:normal}
+
+/* ---- sections ---- */
+section{margin-bottom:64px; scroll-margin-top:20px}
+.lbl{font-family:var(--f-mono); font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:10px}
+.shead{padding-bottom:14px; border-bottom:1px solid var(--rule); margin-bottom:26px}
+.shead h2{font-size:26px; letter-spacing:-.02em}
+.shead .sub{font-size:15px; color:var(--ink-2); max-width:66ch; margin-top:6px}
+/* the label hangs in the margin, the way an annotation sits beside a drawing */
+@media (min-width:940px){
+  section{display:grid; grid-template-columns:150px minmax(0,1fr); gap:0 34px; align-items:start}
+  section > *{grid-column:2}
+  section > .lbl{grid-column:1; grid-row:1; margin-bottom:0; padding-top:5px}
+  section > .shead{grid-row:1}
+}
+.prose{max-width:66ch; display:flex; flex-direction:column; gap:16px}
+.prose + .prose{margin-top:16px}
+
+/* ---- feature grid ---- */
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px}
+.cardy{background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:16px 18px 18px}
+.cardy h3{font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600; margin-bottom:10px}
+.cardy ul{margin:0; padding-left:17px; display:flex; flex-direction:column; gap:6px; font-size:15px}
+.cardy li::marker{color:var(--rule-2)}
+.cardy li b{font-weight:600}
+
+/* ---- the vocabulary table ---- */
+.vocab{background:var(--surface); border:1px solid var(--rule); border-radius:6px; overflow-x:auto}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:15px}
+th{font-family:var(--f-disp); font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); text-align:left; font-weight:600; padding:12px 18px;
+  border-bottom:1px solid var(--rule-2); white-space:nowrap}
+td{padding:11px 18px; border-bottom:1px solid var(--rule); vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--f-disp); font-weight:600; white-space:nowrap; width:1%}
+td code{font-family:var(--f-mono); font-size:12.5px; color:var(--ink-2)}
+
+/* ---- rules ---- */
+.rules{display:flex; flex-direction:column; gap:12px}
+.rule{background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--mark-line);
+  border-radius:0 6px 6px 0; padding:15px 20px 16px}
+.rule.soft{border-left-color:var(--rule-2)}
+.rule h3{font-size:17px; font-family:var(--f-body); font-weight:600; letter-spacing:0; line-height:1.4}
+.rule p{font-size:15px; color:var(--ink-2); margin-top:7px; max-width:74ch}
+.cost{display:inline-flex; align-items:center; gap:6px; margin-top:11px; padding:2px 9px 3px;
+  border-radius:3px; background:var(--mark-soft); color:var(--mark);
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.02em}
+.cost.calm{background:var(--thru-soft); color:var(--thru)}
+.grp{font-family:var(--f-mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3); margin:30px 0 12px}
+.grp:first-child{margin-top:0}
+
+/* ---- carry / drop ---- */
+.split{display:grid; grid-template-columns:1fr; gap:14px}
+@media (min-width:820px){ .split{grid-template-columns:1fr 1fr} }
+.col{background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:18px 20px 20px}
+.col h3{font-size:15px; letter-spacing:.02em; margin-bottom:4px}
+.col .cap{font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:14px}
+.col ul{margin:0; padding-left:17px; display:flex; flex-direction:column; gap:10px; font-size:15px}
+.col.keep{border-top:3px solid var(--good)}
+.col.drop{border-top:3px solid var(--mark)}
+
+/* ---- numbered recommendations: a real order, most leverage first ---- */
+.recs{counter-reset:r; display:flex; flex-direction:column; gap:14px}
+.rec{counter-increment:r; position:relative; padding-left:52px}
+.rec::before{content:counter(r,decimal-leading-zero); position:absolute; left:0; top:1px;
+  font-family:var(--f-mono); font-size:13px; color:var(--mark); font-weight:500;
+  border:1px solid var(--mark-line); border-radius:3px; padding:3px 7px}
+.rec h3{font-size:18px; font-family:var(--f-body); font-weight:600}
+.rec p{font-size:15px; color:var(--ink-2); margin-top:6px; max-width:70ch}
+
+.gaps{display:flex; flex-direction:column; gap:9px; font-size:15px}
+.gap{display:grid; grid-template-columns:88px 1fr; gap:16px; align-items:baseline;
+  padding-bottom:9px; border-bottom:1px solid var(--rule)}
+.gap:last-child{border-bottom:0}
+.tag{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); border:1px solid var(--rule-2); border-radius:3px; padding:2px 0; text-align:center}
+.tag.bug{color:var(--mark); border-color:var(--mark-line)}
+.gap p{color:var(--ink-2)}
+
+.foot{border-top:1px solid var(--rule-2); padding-top:22px; margin-top:10px;
+  font-size:14px; color:var(--ink-3); max-width:66ch}
+code{font-family:var(--f-mono); font-size:.86em; background:var(--surface-2);
+  border:1px solid var(--rule); border-radius:3px; padding:1px 5px}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Awl &amp; Gusset · handover</div>
+  <h1>What to carry into the next one</h1>
+  <p class="lede">A parametric flat-pattern drafter for hand-sewn leather bags: set the dimensions,
+    get the cut pieces, the stitch-hole plan, the hardware list and the order it goes together in.
+    This is what it does, what it knows about leather, and which of that is worth rebuilding.</p>
+  <div class="meta">
+    <span><b>9,008</b> lines · one file · no build step</span>
+    <span><b>4.44M</b> assertions · 2,232 configurations</span>
+    <span><b>6</b> constructions · <b>16</b> element types · <b>6</b> views</span>
+    <span class="asat">counted 31 Aug 2026 — the tool is still moving</span>
+  </div>
+</header>
+
+<section>
+  <div class="lbl">01 · Inventory</div>
+  <div class="shead"><h2>What it does today</h2>
+      <p class="sub">Four capabilities, each of which took a different kind of work.</p></div>
+  <div class="grid">
+    <div class="cardy">
+      <h3>Model</h3>
+      <ul>
+        <li>Five shell <b>constructions</b>, six <b>tops</b>, six <b>carry</b> types</li>
+        <li>Sixteen <b>element</b> types placeable on six faces</li>
+        <li>Lining, turned or raw edges, seam allowance, leather thickness</li>
+        <li>Presets, and save/open as a <code>.bag.json</code> file</li>
+      </ul>
+    </div>
+    <div class="cardy">
+      <h3>Drafting output</h3>
+      <ul>
+        <li>Every cut piece with its size <b>and the formula that produced it</b></li>
+        <li>Stitch-hole plan: every run fitted to a whole number of holes</li>
+        <li>Hardware list, leather area with waste, thread and edge length</li>
+        <li>Ordered build sequence, written for the bench</li>
+      </ul>
+    </div>
+    <div class="cardy">
+      <h3>Views and editing</h3>
+      <ul>
+        <li>Six orthographic views: front, both sides, back, top and bottom plans</li>
+        <li>Lit 3D model, depth-sorted, drag to turn</li>
+        <li>Click a part for its own controls; drag edges, corners and tabs to resize</li>
+        <li>Inside view: walls unrolled, plus a section through the fittings</li>
+      </ul>
+    </div>
+    <div class="cardy">
+      <h3>Paper</h3>
+      <ul>
+        <li>Tiled sheets at 1:1 with alignment crosses and a printed ruler</li>
+        <li>Hand-arrangeable: drag a piece to another sheet, double-click to turn it</li>
+        <li>Vector <b>PDF export</b> written from scratch — pattern, and an info pack</li>
+        <li>Stitch-count sheet for reconciling a seam that has drifted</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lbl">02 · Vocabulary</div>
+  <div class="shead"><h2>The bag model</h2>
+      <p class="sub">If you rebuild nothing else, rebuild this schema. It is the part that is
+        about bags rather than about code, and every screen in the tool is a view onto it.</p></div>
+  <div class="vocab">
+    <table>
+      <thead><tr><th>Axis</th><th>Values</th><th>What it decides</th></tr></thead>
+      <tbody>
+        <tr><td>Construction</td>
+          <td>front + back + gusset · one-piece boxed corners · round base wrapped body (bucket) ·
+              barrel (round ends, tube body) · folded wrap (clutch) · a shape you draw</td>
+          <td>How many shell pieces there are and which seams join them</td></tr>
+        <tr><td>Gusset cut</td>
+          <td>one wrap-around · two halves seamed at the base · separate base + two sides · accordion</td>
+          <td>Whether the base is a seam, a fold, or its own panel</td></tr>
+        <tr><td>Top</td>
+          <td>flap · zip · magnetic snap · drawstring · roll top · open</td>
+          <td>The mouth, and whether there is a top face at all</td></tr>
+        <tr><td>Carry</td>
+          <td>adjustable strap · fixed strap · pack straps · top handles · belt · none</td>
+          <td>Which pieces exist, and where the anchors land on the shell</td></tr>
+        <tr><td>Faces</td>
+          <td>front · back · gusset (left / right / both) · inside · top · bottom</td>
+          <td>Where an element can be placed, and which drawing edits it</td></tr>
+        <tr><td>Elements</td>
+          <td>patch &amp; slip &amp; bellows pockets · D-ring tab · keeper · pen loop · belt loop ·
+              grab handle · buckle tab · reinforcement · maker stamp · rivet · snap · eyelet · foot</td>
+          <td>Everything additive; each brings its own cut piece, stitch box, pleat depth and
+              rivet arrangement</td></tr>
+        <tr><td>Stitching</td>
+          <td>iron pitch · prongs · slit or dot · slant · counting-tick interval</td>
+          <td>Hole spacing, and therefore every run length in the draft</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="lbl">03 · Domain</div>
+  <div class="shead"><h2>What it knows about leather</h2>
+      <p class="sub">These are facts about hand-sewn bags, not about this implementation — they
+        will be true of whatever you build next. Nearly all of them exist because the obvious
+        approach produced a pattern that could not be sewn; the tag says what each one cost.</p></div>
+
+  <div class="grp">Seams and stitch holes</div>
+  <div class="rules">
+    <div class="rule">
+      <h3>Two pieces that meet must be pricked to the same number of holes.</h3>
+      <p>Plan the seam once, give both pieces the same key, and read the count off the plan.
+        This is the spine of the whole thing: it is why a gusset cannot creep against its panel,
+        and it is the single decision that everything else hangs from.</p>
+      <span class="cost">the architecture</span>
+    </div>
+    <div class="rule">
+      <h3>Every run is fitted to a whole number of holes — an even count on a symmetric run.</h3>
+      <p>An even count puts one hole exactly on the centre mark, which is where you start pricking
+        and work outward. The real pitch drifts a few microns off the iron; show that rather than
+        hiding it.</p>
+      <span class="cost calm">a convention, not a scar</span>
+    </div>
+    <div class="rule">
+      <h3>No hole may sit on a cut edge, and a fold is never pricked.</h3>
+      <p>Pull every open run back by the seam allowance at each end. An edge hole tears out when
+        it is punched by hand. The edge opposite a folded pocket's mouth is a fold, not a seam,
+        and the hatched wrap round a ring bar is leather that is bending — no hole goes in it.</p>
+      <span class="cost">a stitch box that started inside a fold</span>
+    </div>
+    <div class="rule">
+      <h3>Two rows of holes on the same line is a piece you cannot prick.</h3>
+      <p>A strap's edge row running the full length while an attachment box put its own long side
+        at the same inset — two rows a hair apart at two different pitches. Once tested for, the
+        same shape turned up in six places.</p>
+      <span class="cost">six occurrences, found by one test</span>
+    </div>
+    <div class="rule">
+      <h3>Counting ticks are indexed from the centre outward, never from an end.</h3>
+      <p>Mark every tenth hole from the middle and you can hold two pieces together and see at a
+        glance whether they are still in step — which is the thing that actually goes wrong
+        halfway down a 600 mm seam. From an end it would depend which way each run was walked,
+        and the two sides of a seam are built independently.</p>
+      <span class="cost calm">the fix for a real bench problem</span>
+    </div>
+  </div>
+
+  <div class="grp">Construction geometry</div>
+  <div class="rules">
+    <div class="rule">
+      <h3>A tapered edge slants, so it measures longer than its width.</h3>
+      <p>Draft the strip <em>shorter</em> along its length so the slanted stitch edge comes out
+        the length the panel needs. Forget it and the gusset is longer than the thing it joins.</p>
+      <span class="cost">two separate bugs</span>
+    </div>
+    <div class="rule">
+      <h3>One definition of how wide the bag opens.</h3>
+      <p>W for a gusseted bag (less both top radii), W + D for a boxed body, half the base
+        perimeter for a bucket. The zip, the zip panel, the mouth stiffener and the drawstring
+        channel all have to read the same function.</p>
+      <span class="cost">a 33 mm error in a stiffener</span>
+    </div>
+    <div class="rule">
+      <h3>A round base is measured off the drawing, not off a formula.</h3>
+      <p>Walk the same polyline the stitching walks. Ramanujan's ellipse approximation is close
+        enough to look right and far enough out to leave you 2 mm short after 600 mm of edge.</p>
+      <span class="cost">2 mm, which is a visible gap</span>
+    </div>
+    <div class="rule">
+      <h3>A bucket body is straight-sided on purpose.</h3>
+      <p>A flared tube is a cone, and a cone does not unroll into a rectangle — it unrolls into an
+        annular sector. Either solve that properly or do not offer the flare.</p>
+      <span class="cost calm">a scope decision</span>
+    </div>
+    <div class="rule">
+      <h3>Everything placed by eye is measured from the finished rim, never the blank edge.</h3>
+      <p>Turn allowances, roll extensions and seam allowances all sit above the rim and all change
+        independently. Pockets, elements, strap anchors and interior fittings need one datum that
+        does not move when those do.</p>
+      <span class="cost">the roll top, which moves the rim</span>
+    </div>
+    <div class="rule">
+      <h3>A bellows pleat folds back on itself, and the fold is not on the panel.</h3>
+      <p>The panel is pricked to the finished face; the extra depth lives in the fold. Where the
+        side pleat crosses the base pleat there is a square of leather folded over itself at each
+        bottom corner — it is mitred, glued, and never pricked, so the run is three sections with
+        the corners left out.</p>
+      <span class="cost">an 84 mm mismatch between panel and blank</span>
+    </div>
+  </div>
+
+  <div class="grp">Hardware and attachments</div>
+  <div class="rules">
+    <div class="rule">
+      <h3>On a shaped end, measure from where the shape starts — not from the point.</h3>
+      <p>Nine millimetres in from an almond tip is four millimetres of leather, and a pair of
+        rivets set six either side of the centre line there is two holes in fresh air.</p>
+      <span class="cost">rivets drawn off the leather</span>
+    </div>
+    <div class="rule">
+      <h3>A shaped end is offset, not shrunk.</h3>
+      <p>Pull the stitch line in by a true parallel offset — every edge moving its own
+        perpendicular distance. Insetting the bounding box shortens a point in proportion instead,
+        so the row creeps toward the tip and the margin is only right along the sides.</p>
+      <span class="cost">a wandering seam allowance</span>
+    </div>
+    <div class="rule">
+      <h3>A handle is not a short strap.</h3>
+      <p>How it is built — single, layered, four-fold, rolled — decides the blank width, what
+        stitching it carries, and how wide the tail lands on the bag. A rolled handle's tail is the
+        strip squashed flat, much wider than the handle you hold. Give handles their own width,
+        anchor height, fixing and rivet count.</p>
+      <span class="cost calm">confusion, borrowed from the strap</span>
+    </div>
+    <div class="rule">
+      <h3>A four-fold blank is four times the finished width, so nothing on it can be pricked.</h3>
+      <p>It gets the footprint outline and a "fold and glue first, then mark from the panel" note
+        instead. Any build that changes the blank's width has to be asked before holes are placed.</p>
+      <span class="cost calm">a rule about the material</span>
+    </div>
+  </div>
+
+  <div class="grp">Drawing conventions</div>
+  <div class="rules">
+    <div class="rule">
+      <h3>Seam allowance means the distance from the cut edge to the stitch line.</h3>
+      <p>That is the number she sets her wing divider to, so anything that moves the cut edge has
+        to move the stitch line with it. Crowning a long edge outward without crowning the row
+        opens that gap by the full crown at mid-span.</p>
+      <span class="cost">the entasis feature, twice</span>
+    </div>
+    <div class="rule">
+      <h3>Every label goes through one placement pass, and the cheapest ones lose.</h3>
+      <p>Hole counts, fold labels, dimensions and the piece's own heading all compete for the same
+        paper. Rank them, nudge a colliding one, and drop it if it still will not fit — a note that
+        cannot be read is worse than no note. A label must also stay on its own tile; one that runs
+        onto the neighbour reads as <em>that</em> piece's note.</p>
+      <span class="cost">13 overlaps, found by measuring</span>
+    </div>
+    <div class="rule">
+      <h3>A number belongs on the leather it is counting.</h3>
+      <p>Point every count and tick at the middle of the piece, not the middle of its tile — on a
+        20 mm strap the tile centre is above the blank entirely. A number in the waste is a number
+        you burnish off.</p>
+      <span class="cost">32 of 171 labels in the margin</span>
+    </div>
+    <div class="rule">
+      <h3>Say what is a fold, what is a seam, and what is pricked through two layers at once.</h3>
+      <p>A dash-dot line on a 40 mm tab is a riddle unless it is labelled. Tint the strip that ends
+        up folded underneath. Colour the runs you prick with both layers clamped together, and
+        print the hole count next to every run — it is the fastest check there is at the bench.</p>
+      <span class="cost calm">legibility, earned back</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lbl">04 · Engineering</div>
+  <div class="shead"><h2>What worked, and what to change</h2>
+      <p class="sub">The domain rules above are portable. These are judgements about how the code
+        was put together, and they are the ones actually worth revisiting.</p></div>
+  <div class="split">
+    <div class="col keep">
+      <h3>Carry it over</h3>
+      <p class="cap">Earned its keep</p>
+      <ul>
+        <li><b>One self-contained file, no build step.</b> Edit, test, publish. Nothing to install
+          and nothing to go stale; it is why this got as far as it did.</li>
+        <li><b>Tests that run the shipped file.</b> The suite pulls the engine straight out of the
+          HTML and runs it in Node, so it exercises what actually ships rather than a copy.</li>
+        <li><b>Sweep the combinations, not just the presets.</b> Presets only cover what the presets
+          happen to use. Nearly every real bug lived in the combinations they miss.</li>
+        <li><b>Assert properties, not snapshots.</b> "Mating runs agree", "no hole is off the blank",
+          "no two rows coincide", "no two labels overlap" — each of those caught a class of bug,
+          repeatedly, without needing to know the right answer in advance.</li>
+        <li><b>Every piece carries the formula that produced it.</b> It makes the output arguable at
+          the bench, which is the difference between a tool and a black box.</li>
+        <li><b>One definition per rule.</b> Every duplicated rule became a divergence — the mouth
+          width, the rivet layout, the tip profile. Name the function and make everything read it.</li>
+      </ul>
+    </div>
+    <div class="col drop">
+      <h3>Do differently</h3>
+      <p class="cap">Cost more than it gave</p>
+      <ul>
+        <li><b>Built-in features and elements do the same job twice.</b> The front pocket exists as
+          both a fixed feature and an element type. Fold the built-ins into the elements list from
+          the start; retrofitting it now would change every preset.</li>
+        <li><b>State grew ad hoc and round-tripping was never tested.</b> One field is still silently
+          dropped on save and reload. Define the design document first, and test the round trip as a
+          property from day one.</li>
+        <li><b>Rendering, geometry and layout are interleaved.</b> The draft produces drawing items,
+          and the same pass positions them, styles them and lays out text. A clean split — geometry →
+          drawing model → renderer — would make the PDF writer, the SVG and the 3D view three
+          consumers of one thing instead of three near-copies.</li>
+        <li><b>The drag system was retrofitted twice.</b> Once for elements, once for grips that
+          change shape. Decide early that any parameter can have a handle on the drawing, and give
+          them one descriptor from the start.</li>
+        <li><b>Presets carry whole state snapshots.</b> They drift from the defaults, and adding a
+          field means touching all of them. Store presets as sparse overrides.</li>
+        <li><b>Do not rely on the browser's print.</b> A sandboxed frame cannot open the print
+          dialog, so print silently did nothing for months. Plan on generating the PDF yourself.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lbl">05 · Restart</div>
+  <div class="shead"><h2>If you start again</h2>
+      <p class="sub">In order of leverage. The first three are structural and are hard to add later;
+        the rest can follow whenever.</p></div>
+  <div class="recs">
+    <div class="rec">
+      <h3>Build the seam plan before anything is drawn.</h3>
+      <p>A registry of named seams, each planned once to a hole count, with pieces subscribing to
+        them. Everything else — panels, elements, straps — becomes a client of that registry. It is
+        the one decision that made this tool correct rather than approximately correct.</p>
+    </div>
+    <div class="rec">
+      <h3>Define the design document, and test its round trip first.</h3>
+      <p>One schema, one sanitiser that clamps every value and drops what it does not know, and a
+        test that asserts save → load → save is identical. Add fields through the schema, never
+        beside it.</p>
+    </div>
+    <div class="rec">
+      <h3>Separate geometry from drawing from rendering.</h3>
+      <p>Geometry answers "where is this in millimetres". The drawing model says "this is a cut
+        line, this is a fold, this is a run of 139 holes". Renderers turn that into SVG, PDF, or a
+        3D scene. Three consumers, one model — and the PDF writer stops being a second
+        implementation of the pattern.</p>
+    </div>
+    <div class="rec">
+      <h3>Make every element a first-class part with a piece, a footprint and a face.</h3>
+      <p>No special cases for pockets. If the built-in features are just elements with better
+        defaults, the element sweep tests them all at once and there is one code path to get right.</p>
+    </div>
+    <div class="rec">
+      <h3>Write the property tests alongside the first feature, not after the tenth.</h3>
+      <p>Each of the four properties listed opposite found real bugs the day it was written, in
+        code that had been reviewed and looked fine. They are cheap, and they are the only reason
+        this is trustworthy at 2,232 configurations.</p>
+    </div>
+    <div class="rec">
+      <h3>Keep the bench vocabulary in the interface.</h3>
+      <p>Pricking iron, wing divider, seam allowance, grain, skive, burnish. The tool is credible
+        because it talks the way the work does; a control called "stitch density parameter" would
+        not be.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lbl">06 · Open</div>
+  <div class="shead"><h2>Gaps and known faults</h2>
+      <p class="sub">Carried forward honestly, so nothing here is a surprise later.</p></div>
+  <div class="gaps">
+    <div class="gap"><span class="tag bug">Bug</span>
+      <p>The sanitiser drops an element's <code>side</code> — which end of the gusset it sits on — so
+        that choice is lost on every save and reload. The presets would need the field too.</p></div>
+    <div class="gap"><span class="tag">Not built</span>
+      <p>Curved and shaped gussets. Only a straight taper today; a curved one needs a numeric solve
+        for the strip length, since the edge is no longer a straight slant.</p></div>
+    <div class="gap"><span class="tag">Not built</span>
+      <p>A flared bucket — the cone that unrolls to an annular sector rather than a rectangle.</p></div>
+    <div class="gap"><span class="tag">Not built</span>
+      <p>A curved zip set into a front panel, which is the other way a belt bag gets built.</p></div>
+    <div class="gap"><span class="tag">Not built</span>
+      <p>Nesting pieces on a hide outline to cut waste. The sheets pack to paper, not to leather.</p></div>
+    <div class="gap"><span class="tag">Not built</span>
+      <p>Turned-edge allowance that varies piece by piece, and a way to see the 3D model open
+        rather than closed.</p></div>
+  </div>
+</section>
+
+<p class="foot">Sources: the working notes in <code>CLAUDE.md</code>, which record each rule and what
+  it cost, and the test suite in <code>tests/check.js</code>. v2 lives at the current artifact URL;
+  v1 is frozen and still published, and <code>v1/</code> holds the exact file behind it.</p>
+
+</div>

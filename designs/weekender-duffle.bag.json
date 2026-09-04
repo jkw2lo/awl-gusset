@@ -1,0 +1,161 @@
+{
+ "format": "awl-gusset/design",
+ "version": 1,
+ "name": "Weekender duffle",
+ "saved": "2026-08-26T03:13:51.803Z",
+ "app": "Awl & Gusset",
+ "design": {
+  "units": "mm",
+  "construction": "barrel",
+  "W": 520,
+  "H": 280,
+  "D": 280,
+  "corner": 0,
+  "topR": 0,
+  "taper": 0,
+  "squareness": 70,
+  "squarenessTop": 15,
+  "shoulder": 0,
+  "bellows": 40,
+  "gussetStyle": "wrap",
+  "thickness": 2.6,
+  "sa": 6,
+  "entasis": 0,
+  "edge": "raw",
+  "turn": 12,
+  "lined": true,
+  "top": "zip",
+  "flap": {
+   "drop": 95,
+   "attach": 45,
+   "style": "round",
+   "radius": 28,
+   "closure": "none",
+   "cInset": 24,
+   "lined": true
+  },
+  "roll": {
+   "turns": 3,
+   "turn": 65,
+   "closure": "clip",
+   "stiffener": true,
+   "anchorY": 150
+  },
+  "draw": {
+   "n": 10,
+   "size": 8,
+   "drop": 26,
+   "style": "eyelet",
+   "toggle": true
+  },
+  "pocket": {
+   "on": false,
+   "w": 230,
+   "h": 150,
+   "x": 0,
+   "y": 40,
+   "radius": 8,
+   "topFold": 16
+  },
+  "slip": {
+   "on": true,
+   "w": 220,
+   "h": 170,
+   "x": 0,
+   "y": 60,
+   "face": "back"
+  },
+  "zipPkt": {
+   "on": false,
+   "w": 180,
+   "h": 160,
+   "y": 50,
+   "face": "back"
+  },
+  "cards": {
+   "on": false,
+   "n": 3,
+   "reveal": 16,
+   "x": 0,
+   "y": 45,
+   "face": "back"
+  },
+  "strap": {
+   "type": "handles",
+   "width": 26,
+   "drop": 560,
+   "adjust": 0,
+   "build": "two",
+   "attach": "sewn",
+   "anchorY": 70,
+   "tabLen": 44,
+   "tabFix": "both",
+   "rivets": 2,
+   "packSpan": 150,
+   "curve": 0,
+   "pad": false,
+   "padW": 70,
+   "padThick": 10,
+   "tip": "round"
+  },
+  "handles": {
+   "on": true,
+   "span": 190,
+   "rise": 120,
+   "width": 26,
+   "attach": 70,
+   "taper": 6,
+   "build": "layered",
+   "core": 9,
+   "ends": "plain",
+   "anchorY": 70,
+   "fix": "both",
+   "rivets": 2
+  },
+  "zip": {
+   "style": "rim",
+   "panelH": 35,
+   "gauge": 8,
+   "wrap": 0,
+   "tabs": true
+  },
+  "stitch": {
+   "show": true,
+   "pitch": 4.5,
+   "prongs": 4,
+   "style": "slit",
+   "lean": "right",
+   "slit": 2
+  },
+  "elements": [
+   {
+    "id": 1,
+    "type": "tab",
+    "face": "gusset",
+    "x": 0,
+    "y": 34,
+    "w": 24,
+    "h": 38,
+    "r": 2,
+    "fix": "stitchbox",
+    "rivets": 2,
+    "mirror": false,
+    "rot": 0,
+    "open": "top"
+   }
+  ],
+  "elSeq": 1,
+  "designName": "Untitled",
+  "sheet": "A4",
+  "waste": 30,
+  "zoom": "fit",
+  "dims": true,
+  "showLining": false,
+  "counts": true,
+  "pv": "sheets",
+  "view3d": {
+   "yaw": 32,
+   "pitch": 18
+  }
+ }
+}

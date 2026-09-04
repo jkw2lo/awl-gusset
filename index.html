@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Awl &amp; Gusset</title>
+<meta name="description" content="A parametric flat-pattern drafter for hand-sewn leather bags.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>&#x1FAA1;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="src/styles/base.css">
+<link rel="stylesheet" href="src/styles/app.css">
+<link rel="stylesheet" href="src/styles/sheet.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="lock">
+    <span class="mk">Awl <em>&amp;</em> Gusset</span>
+    <span class="sub">flat-pattern drafter &#xb7; v2</span>
+  </div>
+  <div class="sp"></div>
+  <span id="presetbox"></span>
+  <div class="seg" role="group" aria-label="Units">
+    <button id="u-mm" aria-pressed="true">mm</button>
+    <button id="u-in" aria-pressed="false">inch</button>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="rail" id="rail"></aside>
+  <main class="work">
+    <div class="wtop">
+      <div class="seg" role="tablist" aria-label="View">
+        <button role="tab" data-tab="bag" aria-pressed="true">Bag</button>
+        <button role="tab" data-tab="pattern" aria-pressed="false">Pattern</button>
+        <button role="tab" data-tab="cut" aria-pressed="false">Cut list</button>
+      </div>
+      <div class="sp" style="flex:1"></div>
+      <div id="wtools" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap"></div>
+    </div>
+    <section class="pane on" id="p-bag"></section>
+    <section class="pane" id="p-pattern"></section>
+    <section class="pane" id="p-cut"></section>
+  </main>
+</div>
+<!-- The inspector floats over everything and is never inside a pane: a pane is rebuilt on
+     every render, and a slider you are dragging must not be pulled out from under you. -->
+<div class="insp" id="insp" hidden></div>
+<!-- and so does every menu: a rail rebuild must not be able to close one. -->
+<div class="pop" id="pop" hidden role="listbox"></div>
+
+
+<!-- The drafter, in load order. Every file is a plain script sharing one global scope, so
+     this list IS the dependency order and nothing is imported: the model and the geometry
+     first, then the engine that drafts with them, then the renderers that read the draft, and
+     last the wiring, which is the only file that touches the DOM at load. Adding a file means
+     adding a line here - see docs/ARCHITECTURE.md, and tests/check.js, which reads the same
+     list. -->
+<script src="src/save-file.js"></script>
+<!-- free-shape defines the profile the initial state is seeded with, so it is read
+     before the model rather than after the geometry it belongs beside. -->
+<script src="src/free-shape.js"></script>
+<script src="src/model.js"></script>
+<script src="src/geometry.js"></script>
+<script src="src/seams.js"></script>
+<script src="src/engine.js"></script>
+<script src="src/elements.js"></script>
+<script src="src/draft.js"></script>
+<script src="src/render-sheets.js"></script>
+<script src="src/render-inside.js"></script>
+<script src="src/shape-editor.js"></script>
+<script src="src/render-elevation.js"></script>
+<script src="src/render-3d.js"></script>
+<script src="src/render-cutlist.js"></script>
+<script src="src/pdf.js"></script>
+<script src="src/designs.js"></script>
+<script src="src/picker.js"></script>
+<script src="src/inspector.js"></script>
+<script src="src/wiring.js"></script>
+
+</body>
+</html>
