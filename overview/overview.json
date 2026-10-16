@@ -1,0 +1,40 @@
+{
+  "version": 3,
+  "name": "Awl & Gusset",
+  "tagline": "Leather bag patterns",
+  "pitch": "Set a bag's dimensions and get the cut pieces, the stitch-hole plan, the hardware and the build order.",
+  "accent": "#9a6a3c",
+  "status": "Live",
+
+  "problem": "A hand-drafted bag pattern has to be redrawn for every size.",
+  "stats": [
+    { "value": "6", "label": "constructions, or a shape you draw" },
+    { "value": "17", "label": "add-ons, from card slots to bag feet" },
+    { "value": "1:1", "label": "pattern sheets to print and cut from" }
+  ],
+
+  "features": [
+    { "title": "A stitch plan to prick", "text": "Every seam fits a whole number of holes, and both sides get the same count.",
+      "details": ["So a gusset can't creep against its panel", "Holes numbered every ten, so you can check as you go", "Tiled A4 sheets with alignment crosses and a ruler"],
+      "screen": { "src": "pattern.png", "alt": "A pattern sheet for the front panel at full size: 280 by 195 mm, stitch holes numbered along the rim, and a turnlock mark" } },
+    { "title": "See the bag first", "text": "A lit 3D model, six views and the inside laid open, as you change it.",
+      "details": ["Leather, thread length and holes to prick, all totalled", "A hardware list down to the swivel snaps"],
+      "screen": { "src": "bag.png", "alt": "The bag in 3D beside what it's made of (2 mm leather, 2,121 holes to prick, 28.29 m of thread) and its hardware list" } },
+    { "title": "Every cut worked out", "text": "A cut list that shows the sum behind every size.",
+      "details": ["Allowances, radii and tapers, spelled out", "And the order it all goes together in"],
+      "screen": { "src": "cutlist.png", "alt": "The cut list: front, back and gusset in leather plus linings, each with its cut size and how it was worked out" } },
+    { "title": "Your own design", "text": "Add pockets, tabs, handles and stamps to any of six faces.",
+      "details": ["Save a design as a file, or print a vector PDF"] }
+  ],
+
+  "screens": [
+    { "src": "desktop.png", "alt": "Awl & Gusset drafting a flap crossbody: dimension controls down the left, the bag in 3D, its materials and hardware", "caption": "The flap crossbody starter, drafted" }
+  ],
+
+  "facts": {
+    "worksOn": "Desktop browsers",
+    "data": "In your browser, or a file",
+    "builtWith": "Plain JS, no dependencies",
+    "started": "Sep 2026"
+  }
+}

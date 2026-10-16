@@ -1,0 +1,54 @@
+{
+  "url": "https://jkw2lo.github.io/awl-gusset/",
+  "shots": [
+    {
+      "file": "desktop.png",
+      "settle": 2500
+    },
+    {
+      "file": "bag.png",
+      "size": [
+        1440,
+        900
+      ],
+      "scale": 2,
+      "settle": 2500,
+      "steps": [],
+      "clip": "#p-bag",
+      "pad": 0,
+      "maxHeight": 620
+    },
+    {
+      "file": "pattern.png",
+      "size": [
+        1440,
+        900
+      ],
+      "scale": 1.5,
+      "settle": 2500,
+      "steps": [
+        "click:[data-tab=pattern]",
+        "wait:1500"
+      ],
+      "clip": "#p-pattern .sheetwrap .sheet",
+      "pad": 0,
+      "maxHeight": 760
+    },
+    {
+      "file": "cutlist.png",
+      "size": [
+        1440,
+        900
+      ],
+      "scale": 2,
+      "settle": 2500,
+      "steps": [
+        "click:[data-tab=cut]",
+        "wait:1200"
+      ],
+      "clip": "#p-cut .card",
+      "pad": 0,
+      "maxHeight": 560
+    }
+  ]
+}
